@@ -5,15 +5,15 @@ const Navbar = () => {
       <div>
         <div className="navbar min-h-[1rem] bg-base-100">
           <div className="navbar-start">
-            <div className="dropdown">
-              
-            </div>
+            <div className="dropdown"></div>
             <h1>(+088)01304076121 | Store Location</h1>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="">
               <li>
-                <h1>Save 20% on your next purchase!</h1>
+                <h1 className="animate-pulse text-red-600">
+                  Save 20% on your next purchase!
+                </h1>
               </li>
             </ul>
           </div>
