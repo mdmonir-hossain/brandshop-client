@@ -1,6 +1,21 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+
+  const { user, logOutUser } = useContext(AuthContext);
+  console.log(user)
+
+  const handleLogOut = () => {
+    logOutUser()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   return (
     <div>
       <div className="navbar min-h-[1rem] bg-base-100">
@@ -18,7 +33,16 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-3">
-          <Link to="/login">Log in</Link> | <Link to="/register">Register</Link>
+          {user?.displayName}
+          <img className="w-5 rounded-full" src={user?.photoURL} />
+          {user ? (
+            <button onClick={handleLogOut}>LogOut</button>
+          ) : (
+            <div>
+              <Link to="/login">Log in</Link> |
+              <Link to="/register">Register</Link>
+            </div>
+          )}
         </div>
       </div>
       <hr />
@@ -123,7 +147,6 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-        
         </div>
         <div className="navbar-end">
           <input type="checkbox" className="toggle" checked />
