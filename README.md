@@ -1,8 +1,11 @@
-# React + Vite
+# Live Link
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Poject features
+
+- Responsive web design: user can use from any device.
+- Add Product: user can add product
+- cart: user can  cart option add, update ,delete
+- user login: user can login via google,github.
+- user registration: user can regtration manually. by using name, email,image, password.
