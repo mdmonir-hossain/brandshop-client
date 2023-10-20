@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { signInWithPopup } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  const { googleUserSignin, googleProvider, auth, user } =
+  const { googleUserSignin, googleProvider, auth, user, loginUser } =
     useContext(AuthContext);
-  console.log(googleUserSignin);
+  const [error, setError] = useState();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -21,12 +23,32 @@ const Login = () => {
         console.log(error.message);
       });
   };
-  const handleLogin = () => {};
+  const handleUserLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+        if (result.user) {
+          toast("User Login successfully");
+        }
+      })
+      .catch((error) => {
+        setError(error.message);
+        if (error) {
+          toast("Email or Password does not match.");
+        }
+      });
+  };
   return (
     <div>
+      <ToastContainer />
       <div className="w-1/2  shadow-lg bg-[#E7EBEE] mx-auto mt-10 mb-10 ">
         <h1 className="text-3xl font-extrabold text-center">Please Login</h1>
-        <form onSubmit={handleLogin} className="card-body">
+        <form onSubmit={handleUserLogin} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -68,7 +90,9 @@ const Login = () => {
           <button onClick={handleGoogleUserSingin} className="btn ">
             <FaGoogle></FaGoogle> Google Login
           </button>
-          {user && navigate(location?.state ? location.state : '/')}
+          {user && (
+            <Navigate to={location?.state ? location.state : "/"}></Navigate>
+          )}
         </div>
       </div>
     </div>
