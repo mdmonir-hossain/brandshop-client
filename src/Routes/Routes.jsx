@@ -6,12 +6,14 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import MyCart from "../Pages/MyCart/MyCart";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

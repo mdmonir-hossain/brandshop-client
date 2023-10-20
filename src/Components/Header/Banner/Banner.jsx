@@ -8,7 +8,9 @@ const Banner = () => {
             className="max-w-sm rounded-lg "
           />
           <div className="mr-20">
-            <h1 className="text-5xl font-bold">Special Discount</h1>
+            <h1 className="text-5xl font-bold">
+              Save 20% 
+            </h1>
             <p className="py-6">
               Get ready to make your day even brighter with our special discount
               offer! 🛍️
