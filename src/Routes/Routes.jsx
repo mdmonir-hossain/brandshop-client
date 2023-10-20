@@ -7,13 +7,15 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import MyCart from "../Pages/MyCart/MyCart";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import BrandProductsALL from "../Pages/BrandProductsALL/BrandProductsALL";
+import Details from "../Pages/Details/Details";
 
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -22,7 +24,12 @@ const Routes = createBrowserRouter([
       },
       {
         path: "/brandProducts/:name",
-        element: <div>products</div>,
+        element: (
+          <PrivateRoute>
+            <BrandProductsALL></BrandProductsALL>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/products"),
       },
       {
         path: "/addproduct",
@@ -33,16 +40,30 @@ const Routes = createBrowserRouter([
         ),
       },
       {
-        path: "/mycart",
-        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-      },
-      {
         path: "/login",
         element: <Login></Login>,
       },
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/details/:_id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/products"),
+      },
+      {
+        path: "/addtocart",
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/addtocart"),
       },
     ],
   },

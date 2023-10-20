@@ -134,7 +134,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/mycart"
+                to="/addtocart"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
