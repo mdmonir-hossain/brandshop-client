@@ -1,6 +1,23 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { signInWithPopup } from "firebase/auth";
 
 const Login = () => {
+
+  const { googleUserSignin, googleProvider, auth } = useContext(AuthContext);
+  console.log(googleUserSignin);
+
+  const handleGoogleUserSingin = () => {
+    signInWithPopup(auth, googleProvider).
+      then(result => {
+        const user = result.user;
+        console.log(user)
+      })
+    .catch(error => {
+        console.log(error.message);
+      });
+  }
   const handleLogin = () => {
     
   }
@@ -35,7 +52,9 @@ const Login = () => {
           </div>
           <div className=" mt-6 flex items-center justify-between">
             <button className="btn bg-red-600 text-white">Login</button>
-            <button className="btn ">Google Login</button>
+            <button onClick={handleGoogleUserSingin} className="btn ">
+              Google Login
+            </button>
           </div>
           <hr />
           <div className="grid grid-cols-2">
