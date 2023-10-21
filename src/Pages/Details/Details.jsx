@@ -7,7 +7,7 @@ const Details = () => {
   const { _id } = useParams();
   const detailsData = useLoaderData([]);
   useEffect(() => {
-    const singlecard = detailsData.find(
+    const singlecard = detailsData?.find(
       (singleDetails) => singleDetails._id === _id
     );
     setDetails(singlecard);

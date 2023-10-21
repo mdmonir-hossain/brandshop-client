@@ -17,7 +17,7 @@ const Home = () => {
             Our Brand Products
           </h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2  container mx-auto gap-4 ">
-            {brandData.map((brands) => (
+            {brandData?.map((brands) => (
               <BrandCard key={brands.id} brands={brands}></BrandCard>
             ))}
           </div>
