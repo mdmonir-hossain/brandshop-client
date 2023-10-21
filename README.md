@@ -1,5 +1,5 @@
 # Live Link
-https://brandshop-client-side-b8a10.web.app/
+https://guileless-starship-3cae50.netlify.app
 
 
 # Poject features
