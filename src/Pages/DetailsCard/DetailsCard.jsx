@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Rating } from "@material-tailwind/react";
 const DetailsCard = ({ detailsid }) => {
   const { user } = useContext(AuthContext);
   const { _id, name, image, brandname, type, rating, description } = detailsid;
@@ -14,7 +15,7 @@ const DetailsCard = ({ detailsid }) => {
       type,
       rating,
       description,
-      uid: user.uid,
+      email: user.email,
     };
 
     fetch("http://localhost:5000/addtocart", {
@@ -47,7 +48,7 @@ const DetailsCard = ({ detailsid }) => {
         <div className="card-body items-center text-center">
           <h2 className="card-title">{name}</h2>
           <p>Brand Name:{brandname}</p>
-          <p>Rating:{rating}</p>
+          <p><Rating value={parseInt(rating)} /></p>
           <p>Type:{type}</p>
           <p>{description}</p>
           <div className="card-actions">

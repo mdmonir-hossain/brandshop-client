@@ -23,13 +23,16 @@ const AddProduct = () => {
     };
 
     console.log(productData);
-    fetch("http://localhost:5000/products", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(productData),
-    })
+    fetch(
+      "https://b8a10-brandshop-server-side-8du89wnwk-monir-hossains-projects.vercel.app/products",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(productData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -159,7 +162,6 @@ const AddProduct = () => {
           </div>
         </form>
       </div>
-      
     </div>
   );
 };
