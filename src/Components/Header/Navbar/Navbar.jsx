@@ -18,8 +18,8 @@ const Navbar = () => {
       });
   }
   return (
-    <div id={theme} style={{backgroundColor:"gray"}}>
-      <div className="navbar min-h-[1rem] bg-base-100">
+    <div id={theme} >
+      <div className="navbar min-h-[1rem] bg-base-100 mb-1">
         <div className="navbar-start">
           <div className="dropdown"></div>
           <h1>(+088)01304076121 | Store Location</h1>
