@@ -28,7 +28,7 @@ const AddtoCardShow = ({ addCart }) => {
           if (data.deletedCount > 0) {
             Swal.fire({
               title: "Success!",
-              text: "Product Added Successfully",
+              text: "Product Deleted Successfully",
               icon: "success",
               confirmButtonText: "Cool",
             });
