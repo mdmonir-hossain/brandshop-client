@@ -18,7 +18,7 @@ const DetailsCard = ({ detailsid }) => {
       email: user.email,
     };
 
-    fetch("http://localhost:5000/addtocart", {
+    fetch("https://b8a10-brandshop-server-side-eight.vercel.app/addtocart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

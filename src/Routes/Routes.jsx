@@ -9,7 +9,7 @@ import MyCart from "../Pages/MyCart/MyCart";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import BrandProductsALL from "../Pages/BrandProductsALL/BrandProductsALL";
 import Details from "../Pages/Details/Details";
-
+import UpdateProducts from "../Pages/UpdateProducts/UpdateProducts";
 
 const Routes = createBrowserRouter([
   {
@@ -20,7 +20,8 @@ const Routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/brands"),
+        loader: () =>
+          fetch("https://b8a10-brandshop-server-side-eight.vercel.app/brands"),
       },
       {
         path: "/brandProducts/:name",
@@ -29,7 +30,10 @@ const Routes = createBrowserRouter([
             <BrandProductsALL></BrandProductsALL>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/products"),
+        loader: () =>
+          fetch(
+            "https://b8a10-brandshop-server-side-eight.vercel.app/products"
+          ),
       },
       {
         path: "/addproduct",
@@ -54,7 +58,10 @@ const Routes = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/products"),
+        loader: () =>
+          fetch(
+            "https://b8a10-brandshop-server-side-eight.vercel.app/products"
+          ),
       },
       {
         path: "/addtocart",
@@ -63,7 +70,22 @@ const Routes = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/addtocart"),
+        loader: () =>
+          fetch(
+            "https://b8a10-brandshop-server-side-eight.vercel.app/addtocart"
+          ),
+      },
+      {
+        path: "/updateproducts/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateProducts></UpdateProducts>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://b8a10-brandshop-server-side-eight.vercel.app/products/${params.id}`
+          ),
       },
     ],
   },

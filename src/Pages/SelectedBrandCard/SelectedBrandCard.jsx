@@ -7,12 +7,11 @@ import { Link } from "react-router-dom";
 const SelectedBrandCard = ({ selectedBrand }) => {
 
     const [nodata, setNodata] = useState();
-    const { _id, name, image, brandname, type, rating } = selectedBrand;
+    const { _id, name, image, brandname, type,price, rating } = selectedBrand;
     
     console.log(_id);
       return (
         <div>
-          
           {nodata ? (
             <p> {nodata}</p>
           ) : (
@@ -25,6 +24,7 @@ const SelectedBrandCard = ({ selectedBrand }) => {
                 <div>
                   <Rating value={parseInt(rating)} readonly />
                 </div>
+                <p>Price:$ {price}</p>
                 <p>Type: {type}</p>
                 <div className="card-actions">
                   <Link to={`/details/${_id}`}>
@@ -32,7 +32,7 @@ const SelectedBrandCard = ({ selectedBrand }) => {
                       Details
                     </button>
                   </Link>
-                  <Link to={`/details/${_id}`}>
+                  <Link to={`/updateproducts/${_id}`}>
                     <button className="btn bg-red-600 text-white">
                       Update
                     </button>
