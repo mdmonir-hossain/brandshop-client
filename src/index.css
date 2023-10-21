@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#ligth{
+    background-color: #f3ebf6;
+}
+#dark{
+    background-color: darkslategray;
+}

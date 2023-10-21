@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import ReactSwitch from "react-switch";
 
 const Navbar = () => {
 
-  const { user, logOutUser } = useContext(AuthContext);
+  const { user, logOutUser,theme,toggle } = useContext(AuthContext);
   console.log(user)
 
   const handleLogOut = () => {
@@ -17,7 +18,7 @@ const Navbar = () => {
       });
   }
   return (
-    <div>
+    <div id={theme} style={{backgroundColor:"gray"}}>
       <div className="navbar min-h-[1rem] bg-base-100">
         <div className="navbar-start">
           <div className="dropdown"></div>
@@ -98,6 +99,20 @@ const Navbar = () => {
                   Add Product
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/addtocart"
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? "border-b-2 border-red-600"
+                      : ""
+                  }
+                >
+                  My Cart
+                </NavLink>
+              </li>
             </ul>
           </div>
           <img className="w-20" src="https://i.ibb.co/vL9Kt0Q/mh-store.png" />
@@ -149,7 +164,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <input type="checkbox" className="toggle" checked />
+          <ReactSwitch onChange={toggle} checked={theme === "dark" } />
         </div>
       </div>
     </div>

@@ -4,15 +4,18 @@ import Banner from "../../Components/Header/Banner/Banner";
 import Footer from "../../Components/Footer/Footer";
 import OurPartners from "../../Components/OurPartners/OurPartners";
 import ContractUs from "../../Components/ContractUs/ContractUs";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const MainLayout = () => {
+    const { theme } = useContext(AuthContext);
     return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
-        </div>
+      <div id={theme}>
+        <Navbar></Navbar>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
     );
 };
 

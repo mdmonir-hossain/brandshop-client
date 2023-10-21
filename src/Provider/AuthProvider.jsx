@@ -33,7 +33,15 @@ const AuthProvider = ({ children }) => {
     };
     }
 
-  ,[])
+    , [])
+  
+  const [theme, setTheme] = useState("light");
+
+  const toggle = () => {
+    setTheme((current) => current === "light" ? "dark" : "light");
+  }
+
+  
   const authInfo = {
     user,
     registerUser,
@@ -42,6 +50,8 @@ const AuthProvider = ({ children }) => {
     googleProvider,
     loginUser,
     logOutUser,
+    theme,
+    toggle,
   };
     return (
       <div>
