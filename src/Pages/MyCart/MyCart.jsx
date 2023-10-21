@@ -4,33 +4,23 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import AddtoCardShow from "../AddtoCardShow/AddtoCardShow";
 
-
 const MyCart = () => {
-  const [cart, setCart] = useState();
-  const [nodata, setNodata] = useState('');
-    const { user } = useContext(AuthContext);
-   
-       const myCartData = useLoaderData([]);
+  const [cart, setCart] = useState([]);
 
-    useEffect(() => {
-      const cartData = myCartData.filter((cart) => cart.email === user.email);
-      setCart(cartData);
-    }, [myCartData, user.email]);
-  console.log(cart);
+  const { user } = useContext(AuthContext);
+
+  const myCartData = useLoaderData([]);
+
   useEffect(() => {
-    if (cart === undefined) {
-      setNodata("No Data Found");
-    }
-  }, [cart]);
+    const cartData = myCartData.filter((cart) => cart.email === user.email);
+    setCart(cartData);
+  }, [myCartData, user.email]);
+
   
   return (
     <div>
       <div>
-        {nodata && (
-          <div className="  flex justify-center items-center text-3xl font-extrabold  mt-10">
-            <h1>{nodata}</h1>
-          </div>
-        )}
+        {cart.length ? "" : <div><h1 className="text-center text-3xl font-bold mt-10 text-red-600">No Data Found</h1></div>}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mb-10 min-h-screen">
         {cart?.map((addCart) => (
