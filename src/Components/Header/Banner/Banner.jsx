@@ -1,16 +1,35 @@
+import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <div className="mt-2">
-      <div className="hero min-h-screen bg-base-200 shadow-lg">
+      <div className="hero min-h-screen bg-base-200 shadow-lg ">
         <div className="hero-content flex-col lg:flex-row-reverse justify-around">
-          <img
-            src="https://i.ibb.co/jJ8qxQD/products.png"
-            className="max-w-sm rounded-lg "
-          />
-          <div className="mr-20">
-            <h1 className="text-5xl font-bold">
-              Save 20% 
-            </h1>
+          <motion.div
+            className="mr-20"
+            initial={{ y: "100vw" }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", stiffness: 20 }}
+          >
+            <img
+              src="https://i.ibb.co/jJ8qxQD/products.png"
+              className="max-w-sm rounded-lg "
+            />
+          </motion.div>
+
+          <motion.div
+            className="mr-20"
+            initial={{ y: "100vw" }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", stiffness: 20 }}
+          >
+            <motion.h1
+              className="text-5xl font-bold"
+              initial={{ y: 30 }}
+              animate={{ y: 0 }}
+              transition={{ type: "spring", stiffness: 120 }}
+            >
+              Save 20%
+            </motion.h1>
             <p className="py-6">
               Get ready to make your day even brighter with our special discount
               offer! 🛍️
@@ -26,7 +45,7 @@ const Banner = () => {
             <button className="animate-pulse btn bg-red-600 text-white">
               Shop Now
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

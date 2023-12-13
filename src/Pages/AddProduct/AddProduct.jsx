@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-
+import { motion } from "framer-motion";
 const AddProduct = () => {
   const handleAddProduct = (event) => {
     event.preventDefault();
@@ -48,8 +48,20 @@ const AddProduct = () => {
   };
 
   return (
-    <div className=" mt-10 mb-10">
-      <h1 className="text-center text-3xl font-extrabold">Add Product</h1>
+    <motion.div
+      className=" mt-10 mb-10"
+      initial={{ x: "-100vw" }}
+      animate={{ x: 0 }}
+      transition={{ type: "spring", duration: 1 }}
+    >
+      <motion.h1
+        className="text-center text-3xl font-extrabold"
+        initial={{ y: 40 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 1, type: "spring", stiffness: 120 }}
+      >
+        Add Product
+      </motion.h1>
       <div className="card flex-shrink-0 w-full lg:w-1/2 shadow-2xl bg-[#E7EBEE] mx-auto ">
         <form onSubmit={handleAddProduct} className="card-body ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
@@ -162,7 +174,7 @@ const AddProduct = () => {
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,5 +1,5 @@
 # Live Link
-https://guileless-starship-3cae50.netlify.app
+https://brandshopgallery.netlify.app/
 
 
 # Poject features
@@ -9,3 +9,5 @@ https://guileless-starship-3cae50.netlify.app
 - cart: user can  cart option add, update ,delete
 - user login: user can login via google,github.
 - user registration: user can registration manually . by using name, email,image, password.
+- Our Partners: Users can view our partners.
+- Contact Us: Users can send emails for contacting.
