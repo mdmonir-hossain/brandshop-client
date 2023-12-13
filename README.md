@@ -1,5 +1,5 @@
 # Live Link
-https://brandshopgallery.netlify.app/
+https://mhstoregallery.netlify.app/
 
 
 # Poject features
